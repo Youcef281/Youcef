@@ -1,6 +1,6 @@
 :root{
-    --color-border: rgb(235, 233, 233);
-    --color-header: rgb(186, 186, 186);
+    --color-border: #ebe9e9;
+    --color-header: #bababa;
     --color-text: white;
 }
 
