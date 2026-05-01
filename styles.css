@@ -78,14 +78,14 @@ h1, .material-icons, .section-header .material-symbols-outlined{
 
 
 /* Work Section */
+
 .work-gallery {
     display: flex;
     align-items: center;
     gap: 10px;
-
     margin-top: 1rem;
+    position: relative;
 }
-
 
 .work-cards-container {
     display: flex;
@@ -93,6 +93,7 @@ h1, .material-icons, .section-header .material-symbols-outlined{
     overflow-x: scroll;
     scroll-behavior: smooth;
     flex-wrap: nowrap;
+    flex: 1;
 
     perspective: 800px;
 
@@ -110,7 +111,7 @@ h1, .material-icons, .section-header .material-symbols-outlined{
     border: var(--color-border) 2px solid;
     border-radius: 10px;
     flex-shrink: 0;
-    max-width: 480px;
+    width: 80%;
     height: auto;
     overflow: hidden;
 
@@ -120,41 +121,38 @@ h1, .material-icons, .section-header .material-symbols-outlined{
     border-radius: 50%;
     border: var(--color-border) 2px solid;
     color: var(--color-header);
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(5px);
     
-
     width: 50px;
     height: 50px;
     flex-shrink: 0;
     
-
     display: flex;
     align-items: center;
     justify-content: center;
     
     font-size: 2rem;
     padding: 0;
-    line-height: 1; 
-
+    line-height: 1;
+    
     transition: .4s ease;
-}
-
-.work-gallery span {
-    color: inherit;
-    font-size: inherit;
+    z-index: 10; /* Ensure buttons are above cards */
 }
 
 .work-gallery button.disabled {
     cursor: not-allowed;
     color: rgb(100, 100, 100);
     border-color: rgb(100, 100, 100);
+    opacity: 0.5;
 }
 
 .work-gallery button:not(.disabled):hover {
-    background-color: grey;
+    background-color: rgba(128, 128, 128, 0.8);
 }
+
 .work-gallery button:not(.disabled):active {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .work-card img {
@@ -373,16 +371,12 @@ h1, .material-icons, .section-header .material-symbols-outlined{
     }
 
     .work-card {
-        max-width: 380px;
+        max-width: 420px;
     }
 
     .work-gallery button {
         width: 40px;
         height: 40px;
-    }
-
-    .work-card-info-body p {
-        font-size: .9rem;
     }
 
     .tech-tag:active {
@@ -433,28 +427,15 @@ h1, .material-icons, .section-header .material-symbols-outlined{
 @media (max-width: 650px) {
     h1, .material-icons, .section-header .material-symbols-outlined{
         font-size: 2.3rem;
-        margin-bottom: .4rem;
     }
 
     .main {
-        max-width: 480px;
-    }
-
-    .intro p {
-        font-size: .95rem;
+        max-width: 100%;
+        padding: 1rem;
     }
 
     .work-card {
-        max-width: 290px;
-    }
-
-    .work-gallery button {
-        width: 40px;
-        height: 40px;
-    }
-
-    .work-card-info-body p {
-        font-size: .8rem;
+        max-width: 85vw; /* Takes 85% of viewport width */
     }
 
     .skill {
@@ -466,40 +447,19 @@ h1, .material-icons, .section-header .material-symbols-outlined{
         width: 38px;
         height: 38px;
     }
-
-    .contact a {
-        width: 50px;
-        height: 50px;
-        font-size: 28px;
-    }
-
-    .contact img {
-        width: 28px;
-        height: 28px;
-    }
 }
 
 @media (max-width: 480px) {
     h1, .material-icons, .section-header .material-symbols-outlined{
         font-size: 2rem;
-        margin-bottom: .4rem;
     }
 
-    .main {
-        max-width: 380px;
-    }
-
-    .intro p {
-        font-size: .9rem;
+    body {
+        padding: 2rem 0.5rem;
     }
 
     .work-card {
-        max-width: 190px;
-    }
-
-    .work-gallery button {
-        width: 40px;
-        height: 40px;
+        max-width: 80vw;
     }
 
     .work-card-info-header h2 {
@@ -507,21 +467,16 @@ h1, .material-icons, .section-header .material-symbols-outlined{
     }
 
     .work-card-info-body p {
-        font-size: .7rem;
+        font-size: .85rem;
     }
 
     .tech-tag .tech-name {
-        font-size: .7rem;
+        font-size: .75rem;
     }
 
-    .skill {
-        font-size: .8rem;
-        width: 130px;
-    }
-
-    .skill img {
-        width: 38px;
-        height: 38px;
+    .tech-tag .tech-icon {
+        width: 18px;
+        height: 18px;
     }
 
     .contact a {
@@ -537,30 +492,20 @@ h1, .material-icons, .section-header .material-symbols-outlined{
 }
 
 @media (max-width: 395px) {
-    .main {
-        max-width: 330px;
-    }
-
-
     .work-card {
-        max-width: 150px;
-    }
-
-    .work-gallery button {
-        width: 40px;
-        height: 40px;
+        max-width: 75vw;
     }
 
     .work-card-info-header h2 {
-        font-size: .9rem;
+        font-size: 1.1rem;
     }
 
     .work-card-info-header p {
-        font-size: .5rem;
+        font-size: .65rem;
     }
 
     .work-card-info-body p {
-        font-size: .55rem;
+        font-size: .75rem;
     }
 
     .work-card-info-links a {
@@ -568,7 +513,7 @@ h1, .material-icons, .section-header .material-symbols-outlined{
     }
 
     .work-card-info-links span {
-        font-size: .9rem;
+        font-size: 1rem;
     }
 
     .contact a {
